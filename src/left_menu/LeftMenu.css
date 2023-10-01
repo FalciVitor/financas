@@ -1,0 +1,28 @@
+/* src/left_menu/LeftMenu.css */
+
+.LeftMenu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: all 0.3s;
+  }
+  
+  .LeftMenu.open {
+    left: 0;
+  }
+  
+  .toggle-button {
+    cursor: pointer;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+  }
+  
+  .menu {
+    padding: 20px;
+    color: #fff;
+  }
+  

@@ -1,14 +1,16 @@
 import './App.css';
+import LeftMenu from './left_menu/index';
 
 function App() {
   return (
     <div className="App">
+      <LeftMenu />
       <header className="App-header">
         <h1>Header</h1>
       </header>
-      <body>
+      <main className='App-main'>
         <h1>Body</h1>
-      </body>
+      </main>
     </div>
   );
 }
