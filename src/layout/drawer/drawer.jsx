@@ -16,7 +16,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { DrawerHeader, AppBar, Drawer } from './styles/DrawerStyles';
+import { DrawerHeader, AppBar, Drawer } from '../styles/DrawerStyles';
 
 export default function MiniDrawer() {
   const theme = useTheme();

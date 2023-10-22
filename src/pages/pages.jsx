@@ -1,10 +1,10 @@
-import './App.css';
-import LeftMenu from './left_menu/index';
+import './pages.css';
+import Drawer from '../layout/drawer/drawer';
 
-function App() {
+function index() {
   return (
     <div className="App">
-      <LeftMenu />
+      <Drawer />
       <header className="App-header">
         <h1>Header</h1>
       </header>
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default index;
