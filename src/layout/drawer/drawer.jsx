@@ -14,6 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { DrawerHeader, Drawer } from './DrawerFunctions';
+import Logo from '../../styles/logo.png'
 
 export default function MiniDrawer() {
   const theme = useTheme();
@@ -29,9 +30,12 @@ export default function MiniDrawer() {
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerToggle}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+        <img 
+          src={Logo} 
+          alt="Minha Imagem" 
+          onClick={handleDrawerToggle} 
+          style={{ cursor: 'pointer', maxWidth: '100%', height: 'auto' }}
+        />
         </DrawerHeader>
 
         <Divider />
