@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Home from './pages/home/home';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './pages/app';
 
 const styles = {
   body: {
@@ -23,8 +22,5 @@ codeElements.forEach(element => {
   Object.assign(element.style, styles.code);
 });
 
-root.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>
-);
+const root = createRoot(document.getElementById('root'));
+root.render( <App />);

@@ -1,15 +1,13 @@
-import './home.css';
-import Drawer from '../../layout/drawer/drawer';
+import React from 'react';
+import './home.css'
 
-function index() {
+function Inicio() {
   return (
-    <div className="App">
-      <Drawer />
-      <main className="App-header">
-        <h1>Header</h1>
-      </main>
-    </div>
+    <main className='Inicio'>
+      <h2>Página de Início</h2>
+      {/* Adicione o conteúdo da página de início aqui */}
+    </main>
   );
 }
 
-export default index;
+export default Inicio;

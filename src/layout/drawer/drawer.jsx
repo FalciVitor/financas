@@ -1,29 +1,32 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+import { React, useState } from 'react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import { DrawerHeader, Drawer } from './DrawerFunctions';
+import { DrawerHeader, Drawer } from './functions/DrawerFunctions';
 import Logo from '../../styles/logo.png'
+import HomeIcon from '@mui/icons-material/Home';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { useNavigate } from 'react-router-dom';
 
 export default function MiniDrawer() {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setOpen(prevOpen => !prevOpen);
   };
-  
+
+  const handleButtonClick = (buttonText, navigate) => {
+    console.log(`Botão "${buttonText}" clicado!`);
+    navigate(`/${buttonText}`);
+  };
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -41,7 +44,7 @@ export default function MiniDrawer() {
         <Divider />
 
         <List >
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Início', 'Relatório', 'Mensal', 'Configurações'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -49,6 +52,7 @@ export default function MiniDrawer() {
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
+                onClick={() => handleButtonClick(text.toLowerCase(), navigate)}
               >
                 <ListItemIcon
                   sx={{
@@ -57,7 +61,11 @@ export default function MiniDrawer() {
                     justifyContent: 'center',
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {index === 0 ? <HomeIcon/> : 
+                    index === 1 ? <BarChartIcon/> :
+                    index === 2 ? <CalendarMonthIcon/> :
+                    index === 3 ? <SettingsIcon/> : ''
+                  }
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -66,32 +74,6 @@ export default function MiniDrawer() {
         </List>
 
         <Divider />
-
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-
       </Drawer>
     </Box>
   );
