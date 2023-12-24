@@ -7,7 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { DrawerHeader, Drawer } from './functions/DrawerFunctions';
+import { DrawerHeader, Drawer } from '../functions/DrawerFunctions';
 import Logo from '../../styles/logo.png'
 import HomeIcon from '@mui/icons-material/Home';
 import BarChartIcon from '@mui/icons-material/BarChart';
